@@ -1,0 +1,12 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+Admin control panel - Nav Bar:
+<ul>
+    <li><a href="{{path('fos_user_security_logout')}}">Logout</a></li>
+</ul>
+
+    {% block content %}{% endblock %}
+
+{% endblock %}
