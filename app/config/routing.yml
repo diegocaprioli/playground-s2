@@ -1,3 +1,8 @@
+dmc_api:
+    resource: "@DMCApiBundle/Controller/"
+    type:     annotation
+    prefix:   /api
+
 dmc_admin:
     resource: "@DMCAdminBundle/Controller/"
     type:     annotation

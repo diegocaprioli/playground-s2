@@ -71,3 +71,26 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: DMC\UserBundle\Entity\User
+    
+    
+#FOSRestBundle Configuration:
+fos_rest:
+    param_fetcher_listener: true
+    body_listener: true
+    format_listener: true
+    view:
+        view_response_listener: true
+
+# Sensio extra config needed for working with FOSRestBundle
+sensio_framework_extra:
+    view: { annotations: false }   
+    
+    
+#JMS Serializer Configuration
+jms_serializer:
+  metadata:
+    auto_detection: true
+    directories:
+      FOSUserBundle:
+        namespace_prefix: "FOS\\UserBundle"
+        path: "@DMCUserBundle/Resources/config/serializer/fos"    
