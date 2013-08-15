@@ -2,8 +2,13 @@
 
 {% block content %}
 
-<h1>Home Page</h1>
+    <div class="row-fluid">
+        <div class="span12">
 
-<a href="{{path('dmc_admin_admin_index')}}">Admin Panel</a>
+            <h1>Home Page</h1>
+            <a href="{{ path('dmc_admin_admin_index') }}">Admin Panel</a>
+
+        </div>
+    </div>
 
 {% endblock %}

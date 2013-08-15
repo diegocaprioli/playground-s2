@@ -1,0 +1,27 @@
+
+<div class="navbar navbar-static-top">
+    <div class="navbar-inner">
+        <a class="brand">PlayGround</a>
+        <ul class="nav">
+            <li><a href="{{ path('dmc_home_home_index') }}">Home</a></li>
+            <li><a href="#">Option 1</a></li>
+        </ul>
+        <ul class="nav pull-right">
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <li><a href="{{ path('dmc_admin_admin_index') }}">Admin</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Me
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ path('fos_user_security_logout') }}">Sign Out</a></li>
+                    </ul>
+                </li>
+            {% else %}
+                <li><a href="{{ path('fos_user_security_login') }}">Sign In</a></li>
+                <li><a href="#">Create Account</a></li>
+            {% endif %}            
+        </ul>
+    </div>
+</div>

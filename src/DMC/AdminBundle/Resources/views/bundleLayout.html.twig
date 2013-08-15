@@ -2,11 +2,10 @@
 
 {% block body %}
 
-Admin control panel - Nav Bar:
-<ul>
-    <li><a href="{{path('fos_user_security_logout')}}">Logout</a></li>
-</ul>
+    {{ include('DMCHomeBundle:Home:_navbar.html.twig') }}
 
-    {% block content %}{% endblock %}
+    <div class="container-fluid">
+        {% block content %}{% endblock %}        
+    </div>
 
 {% endblock %}
