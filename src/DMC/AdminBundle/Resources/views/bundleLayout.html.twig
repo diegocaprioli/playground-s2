@@ -5,7 +5,11 @@
     {{ include('DMCHomeBundle:Home:_navbar.html.twig') }}
 
     <div class="container-fluid">
-        {% block content %}{% endblock %}        
+        <div class="row-fluid">
+            <div class="span12">
+                {% block content %}{% endblock %}        
+            </div>
+        </div>        
     </div>
 
 {% endblock %}

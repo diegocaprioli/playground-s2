@@ -10,7 +10,7 @@ use FOS\RestBundle\Controller\Annotations as Rest;
 
 /**
  * 
- * @Route("/v1")
+ * @Route("/api/v1")
  */
 class ApiV1Controller extends Controller {
     

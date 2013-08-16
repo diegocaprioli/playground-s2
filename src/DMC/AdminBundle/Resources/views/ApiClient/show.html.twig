@@ -1,0 +1,70 @@
+{% extends 'DMCAdminBundle::bundleLayout.html.twig' %}
+
+{% block content %}
+
+    <h3>ApiClient</h3>
+    
+    
+    <dl class="dl-horizontal">
+        <dt>Id</dt>
+        <dd>{{ entity.id }}</dd>
+        
+        <dt>Name</dt>
+        <dd>{{ entity.name }}</dd>
+        
+        <dt>Description</dt>
+        <dd>{{ entity.description }}</dd>
+         
+        <dt>API Keys</dt>
+        <dd>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Secret</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for key in entity.keys %}
+                    <tr>
+                        <td>{{ key.apiKey }}</td>
+                        <td>{{ key.apiSecret }}</td>
+                        <td>
+                            <a class="btn btn-small btn-danger" href="#deleteApiClientKeyModal" role="button" data-toggle="modal">
+                                 <i class="icon-remove icon-white"></i> Remove Key
+                            </a>
+                            {{ include('DMCAdminBundle:ApiClient:_deleteApiClientKeyModal.html.twig', 
+                                {'apiClientId':entity.id, 'apiClientKeyId': key.id}) }}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table> 
+            <form action="{{ path('admin_apiclient_key_create', { 'id': entity.id }) }}" method="post">
+                <button class="btn btn-success" type="submit">
+                    <i class="icon-repeat icon-white"></i> Generate new Key
+                </button>
+            </form>            
+        </dd>
+    </dl>
+
+    <hr>
+    
+    <div class="btn-group">
+        <a class="btn btn-info" href="{{ path('admin_apiclient') }}">
+            <i class="icon-list icon-white"></i> Back to list
+        </a>
+        <a class="btn btn-warning" href="{{ path('admin_apiclient_edit', { 'id': entity.id }) }}">
+            <i class="icon-edit icon-white"></i> Edit
+        </a>
+        <a class="btn btn-danger" href="#deleteApiClientModal" role="button" data-toggle="modal">
+            <i class="icon-remove icon-white"></i> Delete
+        </a>
+    </div>
+    
+    {{ include('DMCAdminBundle:ApiClient:_deleteApiClientModal.html.twig', 
+        {'delete_form': delete_form, 'apiClientId': entity.id}) }}
+        
+
+{% endblock %}

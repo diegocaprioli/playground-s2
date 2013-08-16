@@ -1,0 +1,16 @@
+{% extends 'DMCAdminBundle::bundleLayout.html.twig' %}
+
+{% block content %}
+
+    <h3>ApiClient creation</h3>
+
+    <form action="{{ path('admin_apiclient_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <button type="submit" class="btn btn-primary">Create</button>    
+    </form>
+
+    <a class="btn btn-info" href="{{ path('admin_apiclient') }}">
+        <i class="icon-list icon-white"></i> Back to list
+    </a>
+    
+{% endblock %}
